@@ -43,9 +43,24 @@ class MACDBBV2ControllerConfig(DirectionalTradingControllerConfigBase):
         default=100,
         json_schema_extra={"prompt": "Enter the Bollinger Bands length: ", "prompt_on_new": True},
     )
-    bb_std: float = Field(default=2.0)
-    bb_long_threshold: float = Field(default=0.0)
-    bb_short_threshold: float = Field(default=1.0)
+    bb_std: float = Field(
+        default=2.0,
+        json_schema_extra={"prompt": "Enter the Bollinger Bands standard deviation: ", "prompt_on_new": True},
+    )
+    bb_long_threshold: float = Field(
+        default=0,
+        json_schema_extra={
+            "prompt": "Enter the Bollinger Bands long threshold: ",
+            "prompt_on_new": True,
+        },
+    )
+    bb_short_threshold: float = Field(
+        default=1.0,
+        json_schema_extra={
+            "prompt": "Enter the Bollinger Bands short threshold: ",
+            "prompt_on_new": True,
+        },
+    )
     natr_length: float = Field(
         default=200,
         json_schema_extra={"prompt": "Enter the NATR length: ", "prompt_on_new": True},
